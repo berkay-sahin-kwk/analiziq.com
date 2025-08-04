@@ -23,10 +23,10 @@ export function Header() {
   };
 
   const navItems = [
-    { label: "Predictions", icon: Target, href: "#predictions" },
-    { label: "Live Matches", icon: TrendingUp, href: "#live" },
-    { label: "Team News", icon: Users, href: "#news" },
-    { label: "Chat AI", icon: MessageCircle, href: "#chat" },
+    { label: "Tahminler", icon: Target, href: "#predictions" },
+    { label: "Canlı Maçlar", icon: TrendingUp, href: "#live" },
+    { label: "Takım Haberleri", icon: Users, href: "#news" },
+    { label: "Yapay Zeka Sohbet", icon: MessageCircle, href: "#chat" },
   ];
 
   return (
@@ -40,9 +40,9 @@ export function Header() {
             </div>
             <div>
               <h1 className="text-xl font-bold bg-gradient-primary bg-clip-text text-transparent">
-                FootballAI
+                FutbolYZ
               </h1>
-              <p className="text-xs text-muted-foreground">Predict. Analyze. Win.</p>
+              <p className="text-xs text-muted-foreground">Tahmin Et. Analiz Et. Kazan.</p>
             </div>
           </div>
 
@@ -69,7 +69,7 @@ export function Header() {
             {/* AI Status Badge */}
             <Badge className="hidden sm:flex bg-gradient-accent text-accent-foreground shadow-accent">
               <Brain className="w-3 h-3 mr-1" />
-              AI Online
+              Yapay Zeka Aktif
             </Badge>
 
             {/* Theme Toggle */}

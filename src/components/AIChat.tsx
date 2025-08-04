@@ -33,7 +33,7 @@ export function AIChat({ isMinimized = false, onToggleMinimize, onClose }: AICha
     {
       id: '1',
       type: 'ai',
-      content: "Hello! I'm your AI football analyst. Ask me anything about upcoming matches, team form, injury reports, or predictions. For example: 'Will Manchester United beat Liverpool tonight?' or 'Tell me about Chelsea's current form'.",
+      content: "Merhaba! Ben sizin yapay zeka futbol analistinizim. Yaklaşan maçlar, takım formları, sakatlık raporları veya tahminler hakkında her şeyi sorabilirsiniz. Örneğin: 'Manchester United bugün Liverpool'u yenecek mi?' veya 'Chelsea'nin şu anki formu hakkında bilgi ver'.",
       timestamp: new Date()
     }
   ]);
@@ -41,10 +41,10 @@ export function AIChat({ isMinimized = false, onToggleMinimize, onClose }: AICha
   const [isTyping, setIsTyping] = useState(false);
 
   const quickQuestions = [
-    "Will Galatasaray beat Fenerbahçe tonight?",
-    "Is there a key player missing from Manchester United?",
-    "What's Liverpool's current form?",
-    "Predict the outcome of Chelsea vs Arsenal"
+    "Galatasaray bugün Fenerbahçe'yi yenecek mi?",
+    "Manchester United'da eksik olan önemli bir oyuncu var mı?",
+    "Liverpool'un şu anki formu nasıl?",
+    "Chelsea Arsenal maçının sonucunu tahmin et"
   ];
 
   const handleSendMessage = async () => {
@@ -123,10 +123,10 @@ export function AIChat({ isMinimized = false, onToggleMinimize, onClose }: AICha
                 <Brain className="w-4 h-4 text-accent-foreground" />
               </div>
               <div>
-                <CardTitle className="text-sm">AI Football Analyst</CardTitle>
+                <CardTitle className="text-sm">Yapay Zeka Futbol Analisti</CardTitle>
                 <Badge variant="secondary" className="text-xs">
                   <Sparkles className="w-2 h-2 mr-1" />
-                  Online
+                  Aktif
                 </Badge>
               </div>
             </div>
@@ -199,7 +199,7 @@ export function AIChat({ isMinimized = false, onToggleMinimize, onClose }: AICha
 
           {/* Quick Questions */}
           <div className="space-y-2">
-            <p className="text-xs text-muted-foreground">Quick questions:</p>
+            <p className="text-xs text-muted-foreground">Hızlı sorular:</p>
             <div className="grid grid-cols-1 gap-2">
               {quickQuestions.slice(0, 2).map((question, index) => (
                 <Button
@@ -218,7 +218,7 @@ export function AIChat({ isMinimized = false, onToggleMinimize, onClose }: AICha
           {/* Input */}
           <div className="flex gap-2">
             <Input
-              placeholder="Ask about matches, teams, predictions..."
+              placeholder="Maçlar, takımlar, tahminler hakkında sorun..."
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
               onKeyPress={(e) => e.key === 'Enter' && handleSendMessage()}

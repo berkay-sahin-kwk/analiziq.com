@@ -15,8 +15,8 @@ interface MatchCardProps {
     confidence: number;
     bothTeamsScore: boolean;
     overUnder: string;
-    surpriseRisk: "Low" | "Medium" | "High";
-    injuryImpact: "Low" | "Medium" | "High";
+    surpriseRisk: "Düşük" | "Orta" | "Yüksek";
+    injuryImpact: "Düşük" | "Orta" | "Yüksek";
   };
   keyStats?: {
     homeForm: string;
@@ -38,8 +38,8 @@ export function MatchCard({
   const confidenceColor = aiPrediction.confidence > 75 ? "primary" : 
                          aiPrediction.confidence > 50 ? "neon" : "destructive";
 
-  const riskColor = aiPrediction.surpriseRisk === "High" ? "destructive" :
-                   aiPrediction.surpriseRisk === "Medium" ? "neon" : "primary";
+  const riskColor = aiPrediction.surpriseRisk === "Yüksek" ? "destructive" :
+                   aiPrediction.surpriseRisk === "Orta" ? "neon" : "primary";
 
   return (
     <Card className="group hover:shadow-card transition-all duration-300 hover:scale-[1.02] bg-gradient-to-br from-card to-card/80 border-2 border-border hover:border-primary/30">
@@ -77,7 +77,7 @@ export function MatchCard({
           <div className="text-center px-4">
             <div className="text-2xl font-bold text-primary">VS</div>
             {keyStats && (
-              <p className="text-xs text-muted-foreground mt-1">H2H: {keyStats.headToHead}</p>
+              <p className="text-xs text-muted-foreground mt-1">K2K: {keyStats.headToHead}</p>
             )}
           </div>
 
@@ -102,20 +102,20 @@ export function MatchCard({
         <div className="bg-gradient-to-r from-primary/5 to-accent/5 rounded-lg p-4 space-y-3">
           <div className="flex items-center gap-2 mb-3">
             <Activity className="w-5 h-5 text-primary" />
-            <h4 className="font-semibold text-primary">AI Predictions</h4>
+            <h4 className="font-semibold text-primary">Yapay Zeka Tahminleri</h4>
           </div>
 
           <div className="grid grid-cols-2 gap-3">
             <div className="space-y-2">
               <div className="flex items-center justify-between">
-                <span className="text-sm text-muted-foreground">Likely Winner</span>
+                <span className="text-sm text-muted-foreground">Muhtemel Kazanan</span>
                 <Badge variant="outline" className="text-xs font-bold">
                   {aiPrediction.winner}
                 </Badge>
               </div>
               
               <div className="flex items-center justify-between">
-                <span className="text-sm text-muted-foreground">Confidence</span>
+                <span className="text-sm text-muted-foreground">Güven</span>
                 <Badge 
                   variant={confidenceColor === "primary" ? "default" : "secondary"}
                   className={`text-xs font-bold ${
@@ -128,23 +128,23 @@ export function MatchCard({
               </div>
 
               <div className="flex items-center justify-between">
-                <span className="text-sm text-muted-foreground">Both Teams Score</span>
+                <span className="text-sm text-muted-foreground">İki Takım da Gol Atar</span>
                 <Badge variant={aiPrediction.bothTeamsScore ? "default" : "secondary"} className="text-xs">
-                  {aiPrediction.bothTeamsScore ? "Yes" : "No"}
+                  {aiPrediction.bothTeamsScore ? "Evet" : "Hayır"}
                 </Badge>
               </div>
             </div>
 
             <div className="space-y-2">
               <div className="flex items-center justify-between">
-                <span className="text-sm text-muted-foreground">Over/Under 2.5</span>
+                <span className="text-sm text-muted-foreground">Üst/Alt 2.5</span>
                 <Badge variant="outline" className="text-xs font-bold">
                   {aiPrediction.overUnder}
                 </Badge>
               </div>
 
               <div className="flex items-center justify-between">
-                <span className="text-sm text-muted-foreground">Surprise Risk</span>
+                <span className="text-sm text-muted-foreground">Sürpriz Riski</span>
                 <Badge 
                   variant={riskColor === "primary" ? "default" : "secondary"}
                   className={`text-xs font-bold ${
@@ -158,9 +158,9 @@ export function MatchCard({
               </div>
 
               <div className="flex items-center justify-between">
-                <span className="text-sm text-muted-foreground">Injury Impact</span>
+                <span className="text-sm text-muted-foreground">Sakatlık Etkisi</span>
                 <Badge 
-                  variant={aiPrediction.injuryImpact === "High" ? "destructive" : "secondary"}
+                  variant={aiPrediction.injuryImpact === "Yüksek" ? "destructive" : "secondary"}
                   className="text-xs"
                 >
                   <Users className="w-3 h-3 mr-1" />
@@ -175,9 +175,10 @@ export function MatchCard({
         <Button 
           variant="match" 
           className="w-full group-hover:bg-primary group-hover:text-primary-foreground"
+          onClick={() => alert(`${homeTeam} vs ${awayTeam} için detaylı analiz gösteriliyor...`)}
         >
           <TrendingUp className="w-4 h-4 mr-2" />
-          View Detailed Analysis
+          Detaylı Analizi Görüntüle
         </Button>
       </CardContent>
     </Card>
