@@ -20,7 +20,8 @@ import {
   BarChart3,
   Clock,
   Star,
-  ExternalLink
+  ExternalLink,
+  Eye
 } from "lucide-react";
 
 // Import team logos
